@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/Snake.gd" type="Script" id=1]
+[ext_resource path="res://scenes/BodySegment.tscn" type="PackedScene" id=2]
+
+[node name="Snake" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+BodySegment = ExtResource( 2 )
+speed = 0.1
+step_size = Vector2( 16, 16 )
+
+[node name="MoveTimer" type="Timer" parent="."]
+
+[node name="Head" parent="." instance=ExtResource( 2 )]
+
+[node name="RayCast2D" type="RayCast2D" parent="Head"]
+position = Vector2( 8, 8 )
+cast_to = Vector2( 0, 16 )
+collision_mask = 7
+collide_with_areas = true
+
+[node name="DebugLabel" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
