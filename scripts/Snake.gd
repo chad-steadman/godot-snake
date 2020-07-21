@@ -104,11 +104,11 @@ func _physics_process(_delta):
 			direction = input_direction
 	
 	# DEBUG
-	elif Input.is_key_pressed(KEY_SPACE):
-		self.stop()
+	#elif Input.is_key_pressed(KEY_SPACE):
+	#	self.stop()
 	
 	# DEBUG
-	self.debug_refresh_current_stats()
+	#self.debug_refresh_current_stats()
 
 
 func _on_MoveTimer_timeout():
