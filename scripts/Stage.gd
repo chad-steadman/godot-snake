@@ -154,3 +154,23 @@ func process_wall_collision():
 func process_unknown_collision():
 	snake.stop()
 	self.emit_signal("player_hit_wall")
+
+
+func get_snake():
+	return snake
+
+
+func get_fruit():
+	return fruit
+
+
+func get_stage_size():
+	return stage_size
+
+
+func get_cell_size():
+	return cell_size
+
+
+func get_grid_size():
+	return grid_size
