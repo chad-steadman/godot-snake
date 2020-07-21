@@ -104,11 +104,11 @@ func _physics_process(_delta):
 			direction = input_direction
 	
 	# DEBUG
-	#elif Input.is_key_pressed(KEY_SPACE):
-	#	self.stop()
+#	elif Input.is_key_pressed(KEY_SPACE):
+#		self.stop()
 	
 	# DEBUG
-	#self.debug_refresh_current_stats()
+#	self.debug_refresh_current_stats()
 
 
 func _on_MoveTimer_timeout():
@@ -127,9 +127,9 @@ func _on_MoveTimer_timeout():
 
 
 func move():
-	head.move(velocity)
 	previous_direction = direction
 	previous_velocity = velocity
+	head.move(velocity)
 	for i in range(1, body_segments.size()):
 		var segment = body_segments[i]
 		var previous_segment = body_segments[i-1]

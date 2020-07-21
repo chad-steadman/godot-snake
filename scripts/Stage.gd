@@ -54,6 +54,10 @@ func _ready():
 	snake.set_speed(SNAKE_SPEED_MEDIUM)
 	snake.set_step_size(cell_size)
 	snake.set_head_position($SnakeSpawn.get_position())
+	
+	# DEBUG
+#	snake.debug_set_position(cell_size + Vector2(2, 2))
+#	snake.debug_show()
 
 
 func _on_Boundary_area_exited(area):
