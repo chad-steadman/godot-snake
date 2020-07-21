@@ -9,7 +9,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 BodySegment = ExtResource( 2 )
-speed = 0.1
+speed = 0.12
 step_size = Vector2( 16, 16 )
 
 [node name="MoveTimer" type="Timer" parent="."]

@@ -104,6 +104,10 @@ func _physics_process(_delta):
 			direction = input_direction
 	
 	# DEBUG
+	elif Input.is_key_pressed(KEY_SPACE):
+		self.stop()
+	
+	# DEBUG
 	self.debug_refresh_current_stats()
 
 
@@ -191,11 +195,21 @@ func refresh_sprites():
 
 
 func connect_sprites(segment, previous_segment, next_segment=null):
-	var direction_prev = segment.position.direction_to(previous_segment.position)
+	var direction_prev = segment.get_position().direction_to(previous_segment.get_position())
+	var distance_prev = segment.get_position().distance_to(previous_segment.get_position())
+	
 	var direction_next = Vector2.ZERO
-
+	var distance_next = 0
+	
 	if next_segment != null:
-		direction_next = segment.position.direction_to(next_segment.position)
+		direction_next = segment.get_position().direction_to(next_segment.get_position())
+		distance_next = segment.get_position().distance_to(next_segment.get_position())
+
+	# Check for teleporting snake pieces and adjust directions in the x or y axis
+	if distance_prev > step_size.x or distance_prev > step_size.y:
+		direction_prev *= -1
+	if distance_next > step_size.x or distance_next > step_size.y:
+		direction_next *= -1
 
 	# Adjust sprites depending on 1 of 10 combinations of body segments
 	match direction_prev + direction_next:
